@@ -1,5 +1,12 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "html.suggest.angular1": false,
-  "html.suggest.ionic": false
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    {
+      "language": "typescript",
+      "autoFix": true
+    }
+  ],
+  "prettier.eslintIntegration": true,
 }

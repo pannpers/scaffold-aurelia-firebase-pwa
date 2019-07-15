@@ -1,5 +1,5 @@
-import {FrameworkConfiguration} from 'aurelia-framework';
+import { FrameworkConfiguration } from 'aurelia-framework'
 
-export function configure(config: FrameworkConfiguration) {
-  //config.globalResources([]);
+export function configure(config: FrameworkConfiguration): void {
+  config.globalResources([])
 }
