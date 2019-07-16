@@ -1,10 +1,13 @@
 {
   "name": "scaffold-aurelia-firebase-pwa",
-  "description": "An Aurelia client application.",
+  "description": "An Aurelia client application using Firebase.",
   "version": "0.1.0",
+  "author": {
+    "name": "pannpers"
+  },
   "repository": {
-    "type": "???",
-    "url": "???"
+    "type": "git",
+    "url": "git+https://github.com/pannpers/scaffold-aurelia-firebase-pwa.git"
   },
   "license": "MIT",
   "dependencies": {
