@@ -17,8 +17,8 @@ RUN apt-get update \
 
 # Install ESLint and TypeScript globally
 RUN npm install -g eslint typescript
-# Install Fireabse CLI tools globally
-RUN npm install -g firebase-tools
+# Install Aurelia and Fireabse CLI tools globally
+RUN npm install -g aurelia-cli firebase-tools
 
 # Clean up
 RUN apt-get autoremove -y \

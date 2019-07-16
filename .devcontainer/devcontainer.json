@@ -5,13 +5,15 @@
 
 	// Uncomment the next line if you want to publish any ports.
 	"appPort": [
-    9000,
+    9000,   // dev server
+    3001,   // BrowserSync
+    9005,   // to authenticate Firebase CLI
   ],
 
 	// Uncomment the next line if you want to add in default container specific settings.json values
 	"settings":  {
     "terminal.integrated.shell.linux": "/bin/bash",
-    "workbench.colorTheme": "Quiet Light",
+    "workbench.colorTheme": "Aurelia Dark+",
   },
 
 	// Uncomment the next line to run commands after the container is created.
