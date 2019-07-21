@@ -1,13 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "module": "amd",
-    "noImplicitAny": false,
-    "declaration": false,
-    "types": [
-      "node",
-      "jest"
-    ],
+    "module": "esnext",
+    "skipLibCheck": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
