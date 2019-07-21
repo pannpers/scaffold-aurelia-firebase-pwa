@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "scaffold-aurelia-firebase-pwa",
+    "prod": "scaffold-aurelia-firebase-pwa"
+  }
+}

@@ -5,11 +5,11 @@
       "name": "Chrome Debugger",
       "type": "chrome",
       "request": "launch",
-      "url": "http://localhost:9000",
+      "url": "http://localhost:8080",
       "webRoot": "${workspaceRoot}/src",
       "userDataDir": "${workspaceRoot}/.chrome",
       "sourceMapPathOverrides": {
-        "../src/*": "${webRoot}/*"
+        "webpack:///./src/*": "${webRoot}/*"
       }
     },
     {
