@@ -5,9 +5,8 @@
 
 	// Uncomment the next line if you want to publish any ports.
 	"appPort": [
-    9000,   // dev server
-    3001,   // BrowserSync
-    9005,   // to authenticate Firebase CLI
+    "8080:8080",   // dev server
+    "9005:9005",   // to authenticate Firebase CLI
   ],
 
 	// Uncomment the next line if you want to add in default container specific settings.json values
@@ -27,7 +26,6 @@
     "streetsidesoftware.code-spell-checker",
     "pranaygp.vscode-css-peek",
     "editorconfig.editorconfig",
-    "dbaeumer.vscode-eslint",
     "oderwat.indent-rainbow",
     "orta.vscode-jest",
     "christian-kohler.path-intellisense",

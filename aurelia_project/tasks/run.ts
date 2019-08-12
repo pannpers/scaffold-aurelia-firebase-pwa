@@ -1,48 +1,54 @@
-import * as gulp from 'gulp';
-import * as browserSync from 'browser-sync';
-import * as historyApiFallback from 'connect-history-api-fallback/lib';
+import * as webpack from 'webpack';
+import * as Server from 'webpack-dev-server';
 import * as project from '../aurelia.json';
-import {CLIOptions} from 'aurelia-cli';
-import build from './build';
-import watch from './watch';
+import * as gulp from 'gulp';
 
-let serve = gulp.series(
-  build,
-  done => {
-    browserSync({
-      online: false,
-      open: CLIOptions.hasFlag('open'),
-      port: CLIOptions.getFlagValue('port') || project.platform.port,
-      logLevel: 'silent',
-      server: {
-        baseDir: [project.platform.baseDir],
-        middleware: [historyApiFallback(), function(req, res, next) {
-          res.setHeader('Access-Control-Allow-Origin', '*');
-          next();
-        }]
-      }
-    }, function (err, bs) {
-      if (err) return done(err);
-      let urls = bs.options.get('urls').toJS();
-      log(`Application Available At: ${urls.local}`);
-      log(`BrowserSync Available At: ${urls.ui}`);
-      done();
-    });
+import {config} from './build';
+import configureEnvironment from './environment';
+import {CLIOptions, reportWebpackReadiness} from 'aurelia-cli';
+
+function runWebpack(done) {
+  // https://webpack.github.io/docs/webpack-dev-server.html
+  let opts = {
+    host: 'localhost',
+    publicPath: config.output.publicPath,
+    filename: config.output.filename,
+    hot: project.platform.hmr || CLIOptions.hasFlag('hmr'),
+    port: CLIOptions.getFlagValue('port') || project.platform.port,
+    contentBase: config.output.path,
+    historyApiFallback: true,
+    open: project.platform.open || CLIOptions.hasFlag('open'),
+    stats: {
+      colors: require('supports-color')
+    },
+    ...config.devServer
+  } as any;
+
+  // Add the webpack-dev-server client to the webpack entry point
+  // The path for the client to use such as `webpack-dev-server/client?http://${opts.host}:${opts.port}/` is not required
+  // The path used is derived from window.location in the browser and output.publicPath in the webpack.config.
+  if (project.platform.hmr || CLIOptions.hasFlag('hmr')) {
+    config.plugins.push(new webpack.HotModuleReplacementPlugin());
+    config.entry.app.unshift('webpack-dev-server/client', 'webpack/hot/dev-server');
+  } else {
+    // removed "<script src="/webpack-dev-server.js"></script>" from index.ejs in favour of this method
+    config.entry.app.unshift('webpack-dev-server/client');
   }
-);
 
-function log(message) {
-  console.log(message); //eslint-disable-line no-console
+  const compiler = webpack(config);
+  let server = new Server(compiler, opts);
+
+  server.listen(opts.port, opts.host, function(err) {
+    if (err) throw err;
+
+    reportWebpackReadiness(opts);
+    done();
+  });
 }
 
-function reload() {
-  log('Refreshing the browser');
-  browserSync.reload();
-}
-
-let run = gulp.series(
-  serve,
-  done => { watch(reload); done(); }
+const run = gulp.series(
+  configureEnvironment,
+  runWebpack
 );
 
-export default run;
+export { run as default };

@@ -33,6 +33,26 @@ For more details about VSCode Remote Development, see [the official docs](https:
 firebase login
 ```
 
+This project was bootstrapped based on following selected features:
+webpack http2 web typescript htmlmin-max sass postcss-typical jest cypress vscode scaffold-minimum
+Next time, you can generate a new project faster in unattended mode with the same features:
+
+```sh
+au new scaffold-aurelia-firebase-pwa --unattended --select http2,typescript,htmlmin-max,sass,postcss-typical,jest,cypress,vscode --here 
+
+npm install \
+  firebase \
+  firebaseui \
+  eslint \
+  eslint-config-airbnb-base \
+  eslint-config-prettier \
+  eslint-plugin-import \
+  eslint-plugin-prettier \
+  prettier \
+  @typescript-eslint/eslint-plugin \
+  @typescript-eslint/parser 
+```
+
 ## Usage
 
 ```sh
@@ -42,11 +62,15 @@ au -h
 
 ## Run dev app
 
-Run `au run`, then open `http://localhost:9000`
+Run `au run`, then open `http://localhost:8080`
 
 To open browser automatically, do `au run --open`.
 
 To change dev server port, do `au run --port 8888`.
+
+To enable Webpack Bundle Analyzer, do `au run --analyze`.
+
+To enable hot module reload, do `au run --hmr`.
 
 
 ## Build for production
