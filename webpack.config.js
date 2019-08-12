@@ -159,7 +159,9 @@ module.exports = ({ production, server, extractCss, coverage, analyze, karma } =
   devServer: {
     contentBase: outDir,
     // serve index.html for all 404 (required for push-state)
-    historyApiFallback: true
+    historyApiFallback: true,
+    // enable all network interfaces to allow access from out of Docker container
+    host: '0.0.0.0',
   },
   devtool: production ? 'nosources-source-map' : 'cheap-module-eval-source-map',
   module: {

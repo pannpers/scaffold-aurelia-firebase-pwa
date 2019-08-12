@@ -36,11 +36,15 @@ module.exports = {
   },
   rules: {
     'prettier/prettier': 'error',
+    'lines-between-class-members': 'off',
     'no-useless-constructor': 'off',
+    'no-unused-expressions': 'warn',
+    'no-param-reassign': 'warn',
+    'no-empty-function': 'off',
+    'class-methods-use-this': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/prefer-default-export': 'off',
-    'no-empty-function': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
-    '@typescript-eslint/no-parameter-properties': 'off'
+    '@typescript-eslint/no-parameter-properties': 'off',
   },
 };
