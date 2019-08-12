@@ -5,8 +5,7 @@
 
 	// Uncomment the next line if you want to publish any ports.
 	"appPort": [
-    "9000:9000",   // dev server
-    "3001:3001",   // BrowserSync
+    "8080:8080",   // dev server
     "9005:9005",   // to authenticate Firebase CLI
   ],
 

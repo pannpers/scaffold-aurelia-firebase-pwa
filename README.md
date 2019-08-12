@@ -41,6 +41,8 @@ Next time, you can generate a new project faster in unattended mode with the sam
 au new scaffold-aurelia-firebase-pwa --unattended --select http2,typescript,htmlmin-max,sass,postcss-typical,jest,cypress,vscode --here 
 
 npm install \
+  firebase \
+  firebaseui \
   eslint \
   eslint-config-airbnb-base \
   eslint-config-prettier \
