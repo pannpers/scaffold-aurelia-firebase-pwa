@@ -1,12 +1,13 @@
 import { autoinject } from 'aurelia-framework'
 import { AuthService } from 'services/firebase/auth'
-import { AuthUiService } from 'services/firebase/auth-ui'
+import { Router } from 'aurelia-router'
 
 @autoinject
 export class Top {
-  constructor(private auth: AuthService, private authUi: AuthUiService) {}
+  constructor(private router: Router, private auth: AuthService) {}
 
-  attached(): void {
-    this.authUi.render('#firebaseui-auth-container')
+  signOut(): void {
+    this.auth.signOut()
+    this.router.navigateToRoute('sign-in')
   }
 }

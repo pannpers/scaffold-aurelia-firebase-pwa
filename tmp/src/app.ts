@@ -19,6 +19,7 @@ export class App {
     config.addAuthorizeStep(AuthorizeStep)
 
     config.map([
+      { route: 'sign-in', name: 'sign-in', moduleId: PLATFORM.moduleName('routes/sign-in'), title: 'Sign In' },
       { route: '', name: 'top', moduleId: PLATFORM.moduleName('routes/top'), title: 'Top Page' },
     ])
 
