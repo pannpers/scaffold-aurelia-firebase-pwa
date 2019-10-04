@@ -177,9 +177,15 @@ $ firebase login
 ```
 
 ## 9. Add npm script
+Add `deploy` command to npm script like this.
 
 ```sh
-$ 
+  "scripts": {
+    "build": "au build",
+    "start": "au run",
+    "test": "au test",
+    "deploy": "au build --env prod && firebase deploy --only hosting"
+  },
 ```
 
 **That's all you need to do for local development!!** \
