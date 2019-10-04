@@ -16,7 +16,7 @@
   },
 
 	// Uncomment the next line to run commands after the container is created.
-	"postCreateCommand": "npm install",
+	// "postCreateCommand": "npm install",
 
 	"extensions": [
     "dbaeumer.vscode-eslint",

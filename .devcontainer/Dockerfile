@@ -11,14 +11,13 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Configure apt and install packages
 RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils 2>&1 \
-    #
     # Verify git and needed tools are installed
     && apt-get install -y git procps
 
 # Install ESLint and TypeScript globally
 RUN npm install -g eslint typescript
 
-# Install Aurelia and Fireabse CLI tools globally
+# Install Aurelia and Firebase CLI tools globally
 RUN npm install -g aurelia-cli firebase-tools
 
 # Clean up
