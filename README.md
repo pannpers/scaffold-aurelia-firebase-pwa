@@ -24,7 +24,7 @@
 - [Features / Utilities](#features-utilities)
 - [How to Set Up](#how-to-set-up)
   - [0. Prerequisites](#0-prerequisites)
-  - [1. Fork Scaffold Repository](#1-fork-scaffold-repository)
+  - [1. Duplicate Scaffold Repository](#1-duplicate-scaffold-repository)
   - [2. Launch Local Development Container](#2-launch-local-development-container)
   - [3. Initialize Aurelia Application using `aurelia-cli`.](#3-initialize-aurelia-application-using-aurelia-cli)
   - [4. Install Package Dependencies](#4-install-package-dependencies)
@@ -67,15 +67,9 @@
 For more details about VSCode Remote Development, see [the official docs](https://code.visualstudio.com/docs/remote/containers).
 
 
-## 1. Fork Scaffold Repository
-Fork this Scaffold and `git clone` it to your local.
-
-```sh
-$ git clone $YOUR_FORKED_PROJECT
-
-# move project root directory
-$ cd $YOUR_PROJECT_DIR
-```
+## 1. Duplicate Scaffold Repository
+Duplicate this Scaffold repository following this GitHub help.
+> https://help.github.com/en/articles/duplicating-a-repository
 
 ## 2. Launch Local Development Container
 Launch VSCode workspace in your project root directory like this.
@@ -85,7 +79,9 @@ $ code .
 ```
 
 Then you can see the following dialog and press it.
-<<<< Attach IMAGE >>>>
+
+<img width="1208" alt="vscode-remote-development-init" src="https://user-images.githubusercontent.com/5513309/66194199-f6d02b80-e6ce-11e9-8b12-afb56dcf23a2.png">
+
 
 ## 3. Initialize Aurelia Application using `aurelia-cli`.
 After initializing your local development container, you can use [Firebase CLI](https://firebase.google.com/docs/cli/) and [Aurelia CLI](https://aurelia.io/docs/cli/basics/).
